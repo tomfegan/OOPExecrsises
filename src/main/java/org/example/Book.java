@@ -5,13 +5,12 @@ public class Book {
     int pages;
     int currentPage;
 
-    int numberOfBooksInLibrary;
+    boolean onLoan = false;
 
-    public Book(String title, int pages, int numberOfBooksInLibrary) {
+    public Book(String title, int pages) {
         this.title = title;
         this.pages = pages;
         currentPage = 1;
-        this.numberOfBooksInLibrary = numberOfBooksInLibrary;
     }
 
     public int turnPage(int numberOfPagesTurned) {
@@ -33,7 +32,5 @@ public class Book {
         return currentPage;
     }
 
-    public void setNumberOfBooksInLibrary(int numberOfBooksInLibrary) {
-        this.numberOfBooksInLibrary = numberOfBooksInLibrary;
-    }
+
 }

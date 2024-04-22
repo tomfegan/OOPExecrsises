@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
@@ -7,7 +8,7 @@ public class Main {
         String str = "Hello World!";
         System.out.println(str);
 
-        Book book1 = new Book("LOTR", 10, 4);
+        Book book1 = new Book("LOTR", 10);
         System.out.println("Current page number = " + book1.currentPage);
         System.out.println("Title = " + book1.title);
 
@@ -16,40 +17,45 @@ public class Main {
 
         System.out.println("Title = " + book1.title);
 
-        Ebook javaEbook1 = new Ebook("Java eBook", 1000, 2);
-        GraphicNovel graphicNovel1 = new GraphicNovel("V for Vendetta", 500, 3, "Alan Moore");
-        SheetMusic sheetMusic1 = new SheetMusic("The Mass in B Minor", 200, 7, "Johann Sebastian Bach");
+        Ebook javaEbook1 = new Ebook("Java eBook", 1000);
+        GraphicNovel graphicNovel1 = new GraphicNovel("V for Vendetta", 500,  "Alan Moore");
+        SheetMusic sheetMusic1 = new SheetMusic("The Mass in B Minor", 200, "Johann Sebastian Bach");
 
-        Library newList = new Library();
-        newList.addBookToCatalogue(book1);
-        newList.addBookToCatalogue(javaEbook1);
-        newList.addBookToCatalogue(graphicNovel1);
-        newList.addBookToCatalogue(sheetMusic1);
+        Library libraryBookList1 = new Library();
+        libraryBookList1.addBookToCatalogue(book1); // why no "book" prompt by IntelliJ? Cf ln 25-26 below
+        libraryBookList1.addBookToCatalogue(javaEbook1); // why no "book" prompt by IntelliJ? Cf ln 25-26 below
+        libraryBookList1.addBookToCatalogue(graphicNovel1);
+        libraryBookList1.addBookToCatalogue(sheetMusic1);
 
-        for (Book book : newList.library) {
+        for (Book book : libraryBookList1.getLibrary()) {
             System.out.println(book.getTitle());
-            System.out.println(book.numberOfBooksInLibrary);
-
         }
-        newList.depositBook(book1, 3);
-        newList.withdrawBook(sheetMusic1, 1);
+        libraryBookList1.depositBook(book1);
+        libraryBookList1.withdrawBook(sheetMusic1);
 
-        for (Book book : newList.library) {
-            System.out.println(book.getTitle());
-            System.out.println(book.numberOfBooksInLibrary);
+        for (Book book : libraryBookList1.getLibrary()) {
+            System.out.println(book.getTitle() + " " + book.onLoan);
         }
 
+        List<Book> para = libraryBookList1.getLibrary();
+        libraryBookList1.getBooks(para);
+
+        for (Book book : libraryBookList1.getLibrary()) {
+            System.out.println(book.getTitle());
+        }
 
 
 
 
 
 
-//        newList.add(javaEbook1);
-//        newList.add(graphicNovel1);
-//        newList.add(sheetMusic1);
+
+
+//        libraryBookList1.add(javaEbook1);
+//        libraryBookList1.add(graphicNovel1);
+//        libraryBookList1.add(sheetMusic1);
 //
-//        Library library1 = new Library(newList);
+//        Library library1 = new Library(libraryBookList1);
 
 
 

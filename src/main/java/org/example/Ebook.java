@@ -8,8 +8,8 @@ public class Ebook extends Book {
         EXE
     };
 
-    public Ebook(String title, int pages, int numberOfBooksInLibrary) {
-        super(title, pages, numberOfBooksInLibrary);
+    public Ebook(String title, int pages) {
+        super(title, pages);
     }
 
 
