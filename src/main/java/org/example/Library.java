@@ -19,13 +19,13 @@ public class Library {
         book.onLoan = true;
     }
     public List<Book> getBooks(List<Book> books) {
-
-        for (Book book : books) {
-            if (book.onLoan) {
-                depositBook(book);
-                books.remove(book);
+        // for (Book book : books) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).onLoan) {
+                depositBook(books.get(i));
+                books.remove(books.get(i));
             }
-            books.remove(book);
+            books.remove(books.get(i));
         }
         return books;
     }

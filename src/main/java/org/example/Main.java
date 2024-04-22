@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
@@ -18,7 +17,7 @@ public class Main {
         System.out.println("Title = " + book1.title);
 
         Ebook javaEbook1 = new Ebook("Java eBook", 1000);
-        GraphicNovel graphicNovel1 = new GraphicNovel("V for Vendetta", 500,  "Alan Moore");
+        GraphicNovel graphicNovel1 = new GraphicNovel("V for Vendetta", 500, "Alan Moore");
         SheetMusic sheetMusic1 = new SheetMusic("The Mass in B Minor", 200, "Johann Sebastian Bach");
 
         Library libraryBookList1 = new Library();
@@ -37,18 +36,12 @@ public class Main {
             System.out.println(book.getTitle() + " " + book.onLoan);
         }
 
-        List<Book> para = libraryBookList1.getLibrary();
-        libraryBookList1.getBooks(para);
+        libraryBookList1.getBooks(libraryBookList1.getLibrary());
+
 
         for (Book book : libraryBookList1.getLibrary()) {
             System.out.println(book.getTitle());
         }
-
-
-
-
-
-
 
 
 //        libraryBookList1.add(javaEbook1);
@@ -56,8 +49,6 @@ public class Main {
 //        libraryBookList1.add(sheetMusic1);
 //
 //        Library library1 = new Library(libraryBookList1);
-
-
 
 
     }
